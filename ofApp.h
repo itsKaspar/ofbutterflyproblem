@@ -6,6 +6,8 @@
 class ofApp : public ofBaseApp{
 
 	public:
+		ofApp();
+		~ofApp();
 		void setup();
 		void update();
 		void draw();
@@ -22,5 +24,5 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		vector <Boid> boids;
+		Boid *boid;
 };
