@@ -1,25 +1,31 @@
 #include "ofApp.h"
 
+
+ofApp::ofApp() {
+}
+ofApp::~ofApp() {
+}
 //--------------------------------------------------------------
-void ofApp::setup(){
-	boids.push_back(Boid(glm::vec3(ofGetWidth()/2, ofGetWidth() / 2,0)));
+void ofApp::setup() {
+	//boids.push_back(Boid(glm::vec3(ofGetWidth()/2, ofGetWidth() / 2,0)));
+//}
+	boid = new Boid(glm::vec3(-ofGetWidth() / 2, 0,0));
+}
+//--------------------------------------------------------------
+void ofApp::update() {
+	//for (size_t i = 0; i < boids.size(); i++)
+	//{
+	boid->update();
+	//}
+
 }
 
 //--------------------------------------------------------------
-void ofApp::update(){
-	for (size_t i = 0; i < boids.size(); i++)
-	{
-		boids[i].update();
-	}
-
-}
-
-//--------------------------------------------------------------
-void ofApp::draw(){
-	for (size_t i = 0; i < boids.size(); i++)
-	{
-		boids[i].draw();
-	}
+void ofApp::draw() {
+	//for (size_t i = 0; i < boids.size(); i++)
+	//{
+	boid->draw();
+	//}
 }
 
 //--------------------------------------------------------------
