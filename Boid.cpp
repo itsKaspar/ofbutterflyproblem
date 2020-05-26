@@ -1,23 +1,30 @@
-#include "Boid.h"
+#ifndef _BOID
+#define _BOID
 
-Boid::Boid(glm::vec3 p) {
-	vel = glm::vec3(0.1, 0.1, 0.1);
+#include "ofMain.h" 
 
-	butterfly.move(p);
+#pragma once
+class Boid
+{
 
-	lWing.setParent(butterfly);
-	rWing.setParent(butterfly);
-	lWing.move(-110, 0,0);
-	rWing.move(110, 0, 0);
-}
+public:
 
-void Boid::update() {
-	butterfly.move(vel);
-}
+	Boid();
+	~Boid();
+	Boid(glm::vec3 p);
+	void update();
+	void draw();
 
-void Boid::draw() {
-	butterfly.draw();
+	glm::vec3 pos;
+	glm::vec3 vel;
 
-	rWing.draw();
-	lWing.draw();
-}
+	ofNode butterfly;
+	ofPlanePrimitive lWing;
+	ofPlanePrimitive rWing;
+
+	ofEasyCam cam;
+
+private:
+};
+
+#endif
